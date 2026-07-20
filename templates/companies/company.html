@@ -1,0 +1,133 @@
+{% extends "layouts/dashboard.html" %}
+
+{% block dashboard_content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+        <h2 class="fw-bold">Company Settings</h2>
+        <p class="text-muted">Manage your business profile and branding</p>
+    </div>
+
+    <button class="btn btn-primary">
+        Save Changes
+    </button>
+
+</div>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="row g-4">
+
+        <!-- LEFT COLUMN -->
+        <div class="col-md-8">
+
+            <!-- BASIC INFO -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white fw-bold">
+                    Business Information
+                </div>
+
+                <div class="card-body">
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <label>Company Name</label>
+                            {{ form.name }}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Email</label>
+                            {{ form.email }}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Phone</label>
+                            {{ form.phone }}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Currency</label>
+                            {{ form.currency }}
+                        </div>
+
+                        <div class="col-12">
+                            <label>Address</label>
+                            {{ form.address }}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Tax Number</label>
+                            {{ form.tax_number }}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="card shadow-sm">
+                <div class="card-header bg-white fw-bold">
+                    Document Footer
+                </div>
+
+                <div class="card-body">
+                    {{ form.footer }}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="col-md-4">
+
+            <!-- BRANDING -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white fw-bold">
+                    Branding
+                </div>
+
+                <div class="card-body">
+
+                    <label class="form-label">Logo</label>
+                    {{ form.logo }}
+
+                    {% if company.logo %}
+                        <img src="{{ company.logo.url }}"
+                             class="img-fluid mt-2 rounded border">
+                    {% endif %}
+
+                    <hr>
+
+                    <label class="form-label">Watermark</label>
+                    {{ form.watermark }}
+
+                    {% if company.watermark %}
+                        <img src="{{ company.watermark.url }}"
+                             class="img-fluid mt-2 rounded border">
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <!-- SAVE CARD -->
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <button class="btn btn-primary w-100">
+                        Save Company
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+{% endblock %}

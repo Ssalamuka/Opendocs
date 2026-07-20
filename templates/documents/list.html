@@ -1,0 +1,122 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between mb-4">
+
+<h2>
+
+Documents
+
+</h2>
+
+<a
+
+href="{% url 'create_document' %}"
+
+class="btn btn-primary"
+
+>
+
+New Document
+
+</a>
+
+</div>
+
+
+<table class="table table-striped">
+
+<thead>
+
+<tr>
+
+<th>
+
+Number
+
+</th>
+
+<th>
+
+Customer
+
+</th>
+
+<th>
+
+Type
+
+</th>
+
+<th>
+
+Date
+
+</th>
+
+<th>
+
+Actions
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for document in documents %}
+
+<tr>
+
+<td>
+
+{{ document.number }}
+
+</td>
+
+<td>
+
+{{ document.customer }}
+
+</td>
+
+<td>
+
+{{ document.get_document_type_display }}
+
+</td>
+
+<td>
+
+{{ document.issue_date }}
+
+</td>
+
+<td>
+
+<a
+
+class="btn btn-sm btn-outline-primary"
+
+href="#"
+
+>
+
+View
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h2>
+
+{{ document.number }}
+
+</h2>
+
+<hr>
+
+<p>
+
+Customer:
+
+{{ document.customer }}
+
+</p>
+
+<p>
+
+Type:
+
+{{ document.get_document_type_display }}
+
+</p>
+
+<p>
+
+Date:
+
+{{ document.issue_date }}
+
+</p>
+
+<p>
+
+Notes:
+
+{{ document.notes }}
+
+</p>
+
+<h4>
+
+Items
+
+</h4>
+
+<table class="table">
+
+<thead>
+
+<tr>
+
+<th>
+
+Description
+
+</th>
+
+<th>
+
+Qty
+
+</th>
+
+<th>
+
+Price
+
+</th>
+
+<th>
+
+Total
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for item in document.items.all %}
+
+<tr>
+
+<td>
+
+{{ item.description }}
+
+</td>
+
+<td>
+
+{{ item.quantity }}
+
+</td>
+
+<td>
+
+{{ item.unit_price }}
+
+</td>
+
+<td>
+
+{{ item.total }}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% endblock %}

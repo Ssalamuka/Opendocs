@@ -1,0 +1,167 @@
+{% extends 'base/auth_base.html' %}
+
+{% block title %}
+Login | OpenDocs
+{% endblock %}
+
+{% block content %}
+
+<div class="auth-container">
+
+<div class="auth-left">
+
+<div class="logo">
+
+<span>Open</span>Docs
+
+</div>
+
+<h1>
+
+Welcome back
+
+</h1>
+
+<p>
+
+Manage invoices, quotations,
+contracts and company data
+in one secure workspace.
+
+</p>
+
+<div class="feature">
+
+<i class="bi bi-file-earmark-text"></i>
+
+<div>
+
+<h5>
+
+Smart Documents
+
+</h5>
+
+<p>
+
+Invoices,
+Quotations,
+Receipts
+
+</p>
+
+</div>
+
+</div>
+
+<div class="feature">
+
+<i class="bi bi-buildings"></i>
+
+<div>
+
+<h5>
+
+Company Management
+
+</h5>
+
+<p>
+
+Branding and settings
+
+</p>
+
+</div>
+
+</div>
+
+<div class="feature">
+
+<i class="bi bi-shield-lock"></i>
+
+<div>
+
+<h5>
+
+Secure
+
+</h5>
+
+<p>
+
+Industry-grade security
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="auth-right">
+
+<div class="login-card">
+
+<div class="text-center mb-4">
+
+<i class="bi bi-lock fs-1"></i>
+
+</div>
+
+<h2 class="text-center">
+
+Sign in
+
+</h2>
+
+<p class="text-center text-muted">
+
+Access your OpenDocs workspace
+
+</p>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<div class="mb-3">
+
+<label>
+
+Username
+
+</label>
+
+{{ form.username }}
+
+</div>
+
+<div class="mb-4">
+
+<label>
+
+Password
+
+</label>
+
+{{ form.password }}
+
+</div>
+
+<button class="btn btn-primary btn-login w-100">
+
+Sign In
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

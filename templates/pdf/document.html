@@ -1,0 +1,53 @@
+<h1>
+
+{{ document.number }}
+
+</h1>
+
+<hr>
+
+Customer:
+
+{{ document.customer }}
+
+<br>
+
+Date:
+
+{{ document.issue_date }}
+
+<table>
+
+{% for item in document.items.all %}
+
+<tr>
+
+<td>
+
+{{ item.description }}
+
+</td>
+
+<td>
+
+{{ item.quantity }}
+
+</td>
+
+<td>
+
+{{ item.unit_price }}
+
+</td>
+
+<td>
+
+{{ item.total }}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>

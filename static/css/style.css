@@ -1,0 +1,282 @@
+:root{
+
+--primary:#2563eb;
+
+--secondary:#64748b;
+
+--bg:#f8fafc;
+
+--sidebar:#07122b;
+
+--card:#ffffff;
+
+}
+
+/* ==========================================================================
+   Base Styling
+   ========================================================================== */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Layout Components (Sidebar & Navbar)
+   ========================================================================== */
+
+/* Layout Wrapper for Sidebar + Main Content */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  min-height: 100vh;
+  padding: 30px;
+  flex-shrink: 0;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 30px;
+  display: block;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--primary-dark);
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  color: #475569;
+  font-weight: 500;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background: #eff6ff;
+  color: var(--primary);
+}
+
+.sidebar .active {
+  background: var(--primary);
+  color: white;
+}
+
+/* Top Navbar */
+.navbar {
+  height: 72px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Main Content Area Container */
+.main-content {
+  flex-grow: 1;
+  background: var(--bg);
+}
+
+/* ==========================================================================
+   Cards & Dashboard Stats
+   ========================================================================== */
+
+/* Standard UI Cards */
+.card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  padding: 20px;
+  background: var(--card);
+  transition: var(--transition-smooth);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Metric/Stat Cards */
+.stat-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.stat-card h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+}
+
+.stat-card p {
+  margin: 0 0 4px 0;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.stat-card i {
+  font-size: 32px;
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Data Tables
+   ========================================================================== */
+
+.table {
+  background: var(--card);
+  border-radius: 20px;
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table thead {
+  background: #f1f5f9;
+}
+
+.table th {
+  font-weight: 600;
+  padding: 18px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+
+.table td {
+  padding: 18px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border);
+  color: #334155;
+}
+
+/* Smooth out trailing borders for rounded look */
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   Buttons & UI Controls
+   ========================================================================== */
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-outline-primary {
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-weight: 600;
+  border-color: var(--primary);
+  color: var(--primary);
+  transition: var(--transition-fast);
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-danger {
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-weight: 600;
+  background: var(--danger);
+  border: none;
+}
+
+/* ==========================================================================
+   Forms & Inputs
+   ========================================================================== */
+
+.form-control {
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid #cbd5e1;
+  background-color: var(--card);
+  color: var(--text);
+  transition: var(--transition-fast);
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  outline: 0;
+}
+
+/* ==========================================================================
+   Document Previews & Builder Feature
+   ========================================================================== */
+
+/* Live PDF Canvas Preview */
+.preview {
+  background: var(--card);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  min-height: 500px;
+}
+
+/* Pill Badges for Document Types */
+.badge-invoice,
+.badge-receipt,
+.badge-quotation {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  text-align: center;
+}
+
+.badge-invoice {
+  background: #dbeafe;
+  color: var(--primary-dark);
+}
+
+.badge-receipt {
+  background: #d7ffe5;
+  color: #15803d;
+}
+
+.badge-quotation {
+  background: #fef3c7;
+  color: #b45309;}
